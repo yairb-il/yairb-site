@@ -559,15 +559,27 @@ document.addEventListener('submit', async function(e){
     });
     const result=await response.json();
     if(response.ok && result.success){
-      status.textContent='תודה על פנייתך. ההודעה נשלחה בהצלחה ונחזור אליך בהקדם.';
-      form.reset();
+      form.innerHTML = `
+        <div id="formSuccessBox" role="status" aria-live="polite" tabindex="-1"
+             style="text-align:center;padding:34px 20px;border:2px solid #bd9454;border-radius:12px;background:#f8fbfe;color:#102d50;">
+          <div style="font-size:30px;line-height:1;margin-bottom:12px;" aria-hidden="true">✓</div>
+          <h3 style="margin:0 0 8px;font-size:25px;color:#102d50;">תודה על פנייתך</h3>
+          <p style="margin:0;font-size:17px;line-height:1.7;color:#20354a;">
+            ההודעה נשלחה בהצלחה.<br><strong>נחזור אליך בהקדם.</strong>
+          </p>
+        </div>`;
+      const successBox=document.getElementById('formSuccessBox');
+      if(successBox){
+        successBox.focus({preventScroll:true});
+        successBox.scrollIntoView({behavior:'smooth',block:'center'});
+      }
     }else{
       throw new Error(result.message || 'send failed');
     }
   }catch(err){
     status.textContent='לא הצלחנו לשלוח כרגע. אפשר לפנות ישירות ל־yair@yairb.co.il';
   }finally{
-    if(submit){
+    if(submit && document.body.contains(submit)){
       submit.disabled=false;
       if(submit.tagName==='INPUT') submit.value=oldText; else submit.textContent=oldText;
     }
