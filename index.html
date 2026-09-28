@@ -230,94 +230,89 @@ html.a11y-gray :where(header,main,footer){filter:grayscale(1)}
 
 </style>
 
-<style id="mobile-layout-refinement">
-/* Mobile layout refinement only. Desktop (851px+) is intentionally untouched. */
+<style id="mobile-final-layout">
 @media(max-width:850px){
   html{scroll-padding-top:74px}
   body{overflow-x:hidden}
   .wrap{width:calc(100% - 32px);max-width:100%}
-
-  /* Header */
   header .nav{min-height:68px;padding:5px 0;align-items:center}
   header .logo{width:68px;height:56px}
-  .mobile-menu-toggle{flex:0 0 46px}
   header .links{max-height:calc(100vh - 72px);overflow-y:auto}
 
-  /* General section rhythm */
-  section{padding:44px 0}
-  .section-head{margin-bottom:24px}
-  .section-head h2{font-size:29px;line-height:1.25;margin:7px 0 9px}
-  .section-head p{font-size:16px;line-height:1.65}
-  .rule{margin-bottom:11px}
+  section{padding:34px 0}
+  .section-head{margin-bottom:16px}
+  .section-head h2{font-size:27px;line-height:1.22;margin:5px 0 7px}
+  .section-head p{font-size:15px;line-height:1.5;margin:0}
 
-  /* Home / hero */
-  .hero-grid{display:grid;grid-template-columns:1fr;gap:22px;min-height:auto;padding:38px 0 42px}
+  /* Home: compact vertical spacing */
+  .hero-grid{display:grid;grid-template-columns:1fr;gap:14px;min-height:auto;padding:24px 0 28px}
   .hero-grid>div:first-child{order:1}
-  .hero-side{order:2;padding:24px 20px;border-radius:10px}
-  .hero .eyebrow{font-size:17px;line-height:1.4}
-  .hero h1{font-size:31px;line-height:1.18;letter-spacing:-.7px;margin:13px 0 15px}
-  .hero .lead{font-size:17px;line-height:1.65;margin-bottom:20px}
-  .hero .actions{display:grid;grid-template-columns:1fr;gap:9px}
-  .hero .actions .btn{width:100%;text-align:center;padding:10px 14px}
-  .hero-side h2{font-size:22px}
-  .hero-side li{padding:8px 0}
+  .hero-side{order:2;padding:17px 18px;border-radius:10px}
+  .hero .eyebrow{font-size:17px;line-height:1.35}
+  .hero h1{font-size:31px;line-height:1.16;letter-spacing:-.7px;margin:8px 0 9px}
+  .hero .lead{font-size:16px;line-height:1.5;margin-bottom:12px}
+  .hero .actions{display:grid;grid-template-columns:1fr;gap:7px}
+  .hero .actions .btn{width:100%;text-align:center;padding:8px 12px}
+  .hero-side h2{font-size:21px;margin-bottom:6px}
+  .hero-side p{margin-bottom:7px;line-height:1.45}
+  .hero-side li{padding:5px 0}
 
-  /* Audience and services: one readable card per row on phones/tablets */
-  .audience,.services,.steps{grid-template-columns:1fr;gap:12px}
-  .tile,.service,.step{padding:20px 18px}
-  .tile h3{font-size:20px;margin:7px 0}
-  .service h3,.step h3{font-size:18px}
-  .tile p,.service p,.step p{font-size:15px;line-height:1.6}
+  /* General mobile cards */
+  .audience,.services,.steps{grid-template-columns:1fr}
+  .audience{gap:9px}
+  .tile{padding:15px 16px}
+  .tile h3{font-size:18px;margin:4px 0}
+  .tile p{font-size:14px;line-height:1.45}
 
-  /* About: identity/photo first, explanatory blue panel second */
-  #about{padding-top:42px;padding-bottom:44px}
-  #about .about{display:flex;flex-direction:column;gap:22px}
+  /* About: photo/title and first paragraph first; continuation collapsible */
+  #about{padding-top:30px;padding-bottom:30px}
+  #about .about{display:flex;flex-direction:column;gap:14px}
   #about .about>div:not(.about-panel){order:1}
-  #about .about-panel{order:2;padding:25px 21px}
-  #about .about-title-row{display:flex;align-items:center;gap:14px;margin-bottom:16px}
-  #about .about-title-row h2{font-size:27px;line-height:1.25;margin:0}
-  #about .about-portrait{width:74px;flex-basis:74px}
-  #about .about>div:not(.about-panel)>p{font-size:16px;line-height:1.7;margin:0 0 14px}
-  #about .about-panel strong{font-size:23px;line-height:1.4}
-  #about .about-panel .line{margin:16px 0}
-  #about .about-panel p{font-size:15px;line-height:1.65;margin-bottom:10px}
-  #about .about-panel .about-meeting-link{margin-top:12px;width:100%;justify-content:center}
+  #about .about-panel{order:2;padding:18px}
+  #about .about-title-row{display:flex;align-items:center;gap:12px;margin-bottom:10px}
+  #about .about-title-row h2{font-size:25px;line-height:1.22;margin:0}
+  #about .about-portrait{width:68px;flex-basis:68px}
+  #about .about>div:not(.about-panel)>p{font-size:15px;line-height:1.55;margin:0 0 9px}
+  #about .about-more-toggle{display:inline-flex;align-items:center;gap:6px;border:0;background:transparent;color:var(--blue);font:inherit;font-weight:800;padding:5px 0;cursor:pointer}
+  #about .about-more-toggle .arrow{font-size:14px}
+  #about .about-more-content[hidden]{display:none!important}
+  #about .about-panel strong{font-size:20px;line-height:1.3}
+  #about .about-panel .line{margin:9px 0}
+  #about .about-panel p{font-size:14px;line-height:1.45;margin-bottom:6px}
+  #about .about-panel .about-meeting-link{margin-top:9px;width:100%;justify-content:center}
 
-  /* Method */
-  #method{padding-top:42px;padding-bottom:44px}
-  #method .steps{gap:11px}
-  #method .step{padding:18px}
-  #method .step b{font-size:23px}
-  #method .method-contact{display:flex;justify-content:center;margin-top:20px}
-  #method .method-contact .btn{width:100%;max-width:320px;text-align:center}
+  /* Services: deliberately compact */
+  #services{padding-top:26px;padding-bottom:26px}
+  #services .section-head{margin-bottom:12px}
+  #services .services{gap:6px}
+  #services .service{padding:9px 13px}
+  #services .service h3{font-size:16px;margin:1px 0 3px}
+  #services .service p{font-size:12.5px;line-height:1.32;margin:0}
 
-  /* Contact: intro, contact details, then form */
-  #contact .contact-hero{padding:30px 0 24px}
-  #contact .contact-hero .contact-page-title{font-size:30px;margin:4px 0 7px}
-  #contact .contact-hero p{font-size:16px;line-height:1.6}
-  #contact .contact-content{padding:22px 0 34px}
-  #contact .contact-columns{display:flex;flex-direction:column;gap:16px}
+  /* Method: four compact horizontal steps */
+  #method{padding-top:26px;padding-bottom:26px}
+  #method .section-head{margin-bottom:12px}
+  #method .steps{gap:6px}
+  #method .step{padding:9px 12px;display:grid;grid-template-columns:36px 1fr;column-gap:8px;align-items:center}
+  #method .step b{font-size:18px;grid-row:1 / span 2;align-self:center}
+  #method .step h3{font-size:15px;margin:0 0 1px}
+  #method .step p{font-size:12.5px;line-height:1.3;margin:0}
+  #method .method-contact{display:flex;justify-content:center;margin-top:10px}
+  #method .method-contact .btn{width:100%;max-width:320px;text-align:center;padding:8px 12px}
+
+  /* Contact */
+  #contact .contact-hero{padding:27px 0 21px}
+  #contact .contact-content{padding:20px 0 32px}
+  #contact .contact-columns{display:flex;flex-direction:column;gap:14px}
   #contact .contact-columns>div:nth-child(2){order:1;width:100%}
-  #contact .contact-card{order:2;width:100%;padding:20px 18px}
-  #contact .info-card{padding:20px 18px}
-  #contact .invite{padding:20px 18px;margin-top:12px}
+  #contact .contact-card{order:2;width:100%;padding:18px 16px}
   #contact .fieldrow{grid-template-columns:1fr;gap:0}
-  #contact .field{margin-bottom:11px}
-  #contact .field input,#contact .field textarea{font-size:16px;padding:10px 11px}
-  #contact .field textarea{min-height:95px}
-  #contact .contact-card .submit{min-height:46px}
-  #contact .note{font-size:11px;line-height:1.5}
-
-  footer{padding:20px 0 82px}
+  #contact .field input,#contact .field textarea{font-size:16px}
+  footer{padding-bottom:82px}
 }
-
 @media(max-width:420px){
   .wrap{width:calc(100% - 26px)}
   .hero h1{font-size:29px}
-  .section-head h2{font-size:27px}
-  #about .about-title-row h2{font-size:24px}
-  #about .about-portrait{width:66px;flex-basis:66px}
-  .a11y-toggle{width:46px;height:46px;font-size:22px}
 }
 </style>
 
@@ -401,6 +396,26 @@ aria-expanded="false" aria-controls="mainNav" aria-label="פתיחת תפריט 
     if(window.matchMedia('(max-width:850px)').matches&&nav.classList.contains('mobile-open')&&!nav.contains(e.target)&&!button.contains(e.target))closeMenu();
   });
   window.addEventListener('resize',()=>{if(window.innerWidth>850)closeMenu();});
+})();
+</script>
+
+
+<script id="about-mobile-readmore">
+(()=>{
+ const mq=window.matchMedia('(max-width:850px)');
+ const about=document.querySelector('#about .about>div:not(.about-panel)');
+ if(!about)return;
+ const ps=[...about.querySelectorAll(':scope > p')];
+ if(ps.length<2)return;
+ const more=document.createElement('div'); more.className='about-more-content';
+ ps.slice(1).forEach(p=>more.appendChild(p));
+ const btn=document.createElement('button');
+ btn.type='button'; btn.className='about-more-toggle'; btn.setAttribute('aria-expanded','false');
+ btn.innerHTML='<span class="label">קרא עוד</span><span class="arrow" aria-hidden="true">↓</span>';
+ ps[0].after(btn,more);
+ const sync=()=>{if(mq.matches){btn.style.display='inline-flex';if(btn.getAttribute('aria-expanded')!=='true')more.hidden=true}else{btn.style.display='none';more.hidden=false}};
+ btn.addEventListener('click',()=>{const open=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',String(!open));more.hidden=open;btn.querySelector('.label').textContent=open?'קרא עוד':'סגור';btn.querySelector('.arrow').textContent=open?'↓':'↑'});
+ mq.addEventListener?.('change',sync); sync();
 })();
 </script>
 
