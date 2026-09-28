@@ -378,7 +378,7 @@ aria-expanded="false" aria-controls="mainNav" aria-label="פתיחת תפריט 
 <input type="hidden" name="from_name" value="אתר יאיר לעסקים">
 
 <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off">
-<div class="fieldrow"><div class="field"><label for="name">שם מלא *</label><input autocomplete="name" id="name" name="name" placeholder="השם שלך" required=""/></div><div class="field"><label for="organization">ארגון / חברה</label><input id="organization" name="organization" placeholder="שם הארגון"/></div></div><div class="fieldrow"><div class="field"><label for="email">דוא״ל *</label><input autocomplete="email" dir="ltr" id="email" name="email" placeholder="name@example.com" required="" type="email"/></div><div class="field"><label for="phone">טלפון *</label><input autocomplete="tel" dir="ltr" id="phone" name="phone" placeholder="050-0000000" required="" type="tel"/></div></div><div class="field"><label for="message">במה אוכל לסייע?</label><textarea id="message" name="message" placeholder="כמה מילים על הארגון ועל הנושא שתרצו לשוחח עליו"></textarea></div><button class="btn submit" type="submit">שלח הודעה</button><p class="note">בשלב הבדיקה, לחיצה על הכפתור פותחת הודעה מוכנה בתוכנת הדואר. שליחה ישירה מהאתר תחובר לפני הפרסום.</p>
+<div class="fieldrow"><div class="field"><label for="name">שם מלא *</label><input autocomplete="name" id="name" name="שם" placeholder="השם שלך" required=""/></div><div class="field"><label for="organization">ארגון / חברה</label><input id="organization" name="ארגון" placeholder="שם הארגון"/></div></div><div class="fieldrow"><div class="field"><label for="email">דוא״ל *</label><input autocomplete="email" dir="ltr" id="email" name="דוא״ל" placeholder="name@example.com" required="" type="email"/></div><div class="field"><label for="phone">טלפון *</label><input autocomplete="tel" dir="ltr" id="phone" name="טלפון" placeholder="050-0000000" required="" type="tel"/></div></div><div class="field"><label for="message">במה אוכל לסייע?</label><textarea id="message" name="הודעה" placeholder="כמה מילים על הארגון ועל הנושא שתרצו לשוחח עליו"></textarea></div><button class="btn submit" type="submit">שלח הודעה</button><p class="note">בשלב הבדיקה, לחיצה על הכפתור פותחת הודעה מוכנה בתוכנת הדואר. שליחה ישירה מהאתר תחובר לפני הפרסום.</p>
 <div id="formStatus" role="status" aria-live="polite" style="display:none;margin-top:12px;font-weight:700"></div>
 
 </form></div>
@@ -508,7 +508,7 @@ aria-expanded="false" aria-controls="mainNav" aria-label="פתיחת תפריט 
      const res=await fetch(form.action,{method:'POST',body:data});
      const json=await res.json();
      if(res.ok && json.success){
-       status.textContent='תודה, ההודעה נשלחה בהצלחה. אחזור אליך בהקדם.';
+       status.textContent='תודה על פנייתך. ההודעה נשלחה בהצלחה ונחזור אליך בהקדם.';
        form.reset();
      }else{
        throw new Error(json.message || 'Submission failed');
@@ -559,7 +559,7 @@ document.addEventListener('submit', async function(e){
     });
     const result=await response.json();
     if(response.ok && result.success){
-      status.textContent='תודה, ההודעה נשלחה בהצלחה. אחזור אליך בהקדם.';
+      status.textContent='תודה על פנייתך. ההודעה נשלחה בהצלחה ונחזור אליך בהקדם.';
       form.reset();
     }else{
       throw new Error(result.message || 'send failed');
