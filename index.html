@@ -316,6 +316,39 @@ html.a11y-gray :where(header,main,footer){filter:grayscale(1)}
 }
 </style>
 
+
+<style id="mobile-polish-last-pass">
+@media(max-width:850px){
+ #about{padding-top:22px;padding-bottom:25px}
+ #about .about{gap:10px}
+ #about .about-title-row{margin-bottom:7px}
+ #about .about>div:not(.about-panel)>p{margin-bottom:6px}
+ #about .about-panel{padding:15px 18px}
+
+ #method{padding-top:20px;padding-bottom:22px}
+ #method .section-head{margin-bottom:9px}
+ #method .section-head h2{margin-top:2px;margin-bottom:4px}
+ #method .steps{gap:4px}
+ #method .step{padding:7px 11px}
+ #method .step h3{font-size:15px}
+ #method .step p{font-size:12px;line-height:1.22}
+ #method .method-contact{margin-top:7px}
+
+ #services{padding-top:30px;padding-bottom:46px}
+ #services .section-head{margin-bottom:16px}
+ #services .services{gap:8px}
+ #services .service{padding:11px 14px}
+
+ #contact .contact-hero{position:relative;padding-bottom:38px}
+ #contact .contact-continue{
+   position:absolute;bottom:9px;left:50%;transform:translateX(-50%);
+   border:0;background:transparent;color:inherit;font:inherit;
+   font-size:13px;font-weight:800;white-space:nowrap;padding:3px 10px;cursor:pointer
+ }
+ #contact .contact-continue span{display:inline-block;margin-right:4px}
+}
+</style>
+
 </head>
 <body>
 <a class="skip-link" href="#main-content">דלג לתוכן הראשי</a>
@@ -416,6 +449,21 @@ aria-expanded="false" aria-controls="mainNav" aria-label="פתיחת תפריט 
  const sync=()=>{if(mq.matches){btn.style.display='inline-flex';if(btn.getAttribute('aria-expanded')!=='true')more.hidden=true}else{btn.style.display='none';more.hidden=false}};
  btn.addEventListener('click',()=>{const open=btn.getAttribute('aria-expanded')==='true';btn.setAttribute('aria-expanded',String(!open));more.hidden=open;btn.querySelector('.label').textContent=open?'קרא עוד':'סגור';btn.querySelector('.arrow').textContent=open?'↓':'↑'});
  mq.addEventListener?.('change',sync); sync();
+})();
+</script>
+
+
+<script id="contact-mobile-continuation">
+(()=>{
+ const hero=document.querySelector('#contact .contact-hero');
+ const content=document.querySelector('#contact .contact-content');
+ if(!hero||!content)return;
+ const b=document.createElement('button');
+ b.type='button'; b.className='contact-continue';
+ b.innerHTML='פרטים נוספים <span aria-hidden="true">↓</span>';
+ b.setAttribute('aria-label','המשך לפרטי יצירת קשר');
+ b.addEventListener('click',()=>content.scrollIntoView({behavior:'smooth',block:'start'}));
+ hero.appendChild(b);
 })();
 </script>
 
