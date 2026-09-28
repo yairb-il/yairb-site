@@ -12,7 +12,7 @@
 <meta property="og:url" content="https://yairb.co.il/">
 <meta property="og:site_name" content="יאיר לעסקים">
 
-<meta content="יעקב יאיר — ייעוץ ארגוני וניהולי לרשויות מקומיות, עמותות, משרדי תכנון וחברות. שיפור תהליכים, ממשקים וביצועים." name="description"/>
+
 <style>
 :root{--navy:#102d50;--blue:#14549a;--gold:#bd9454;--ink:#20354a;--muted:#62758a;--pale:#f0f6fb;--line:#dce6f0}
 *{box-sizing:border-box}html{scroll-behavior:smooth}body{direction:rtl;text-align:right;margin:0;font-family:Arial,"Noto Sans Hebrew",sans-serif;color:var(--ink);background:white;line-height:1.75}a{color:inherit;text-decoration:none}.wrap{width:min(1140px,calc(100% - 44px));margin:auto}
@@ -378,7 +378,7 @@ aria-expanded="false" aria-controls="mainNav" aria-label="פתיחת תפריט 
 <input type="hidden" name="from_name" value="אתר יאיר לעסקים">
 
 <input type="checkbox" name="botcheck" class="hidden" style="display:none" tabindex="-1" autocomplete="off">
-<div class="fieldrow"><div class="field"><label for="name">שם מלא *</label><input autocomplete="name" id="name" name="Name" placeholder="השם שלך" required=""/></div><div class="field"><label for="organization">ארגון / חברה</label><input id="organization" name="Company / Organization" placeholder="שם הארגון"/></div></div><div class="fieldrow"><div class="field"><label for="email">דוא״ל *</label><input autocomplete="email" dir="ltr" id="email" name="Email" placeholder="name@example.com" required="" type="email"/></div><div class="field"><label for="phone">טלפון *</label><input autocomplete="tel" dir="ltr" id="phone" name="Phone" placeholder="050-0000000" required="" type="tel"/></div></div><div class="field"><label for="message">במה אוכל לסייע?</label><textarea id="message" name="Message" placeholder="כמה מילים על הארגון ועל הנושא שתרצו לשוחח עליו"></textarea></div><button class="btn submit" type="submit">שלח הודעה</button><p class="note">בשלב הבדיקה, לחיצה על הכפתור פותחת הודעה מוכנה בתוכנת הדואר. שליחה ישירה מהאתר תחובר לפני הפרסום.</p>
+<div class="fieldrow"><div class="field"><label for="name">שם מלא *</label><input autocomplete="name" id="name" name="Name" placeholder="השם שלך" required=""/></div><div class="field"><label for="organization">ארגון / חברה</label><input id="organization" name="Company / Organization" placeholder="שם הארגון"/></div></div><div class="fieldrow"><div class="field"><label for="email">דוא״ל *</label><input autocomplete="email" dir="ltr" id="email" name="Email" placeholder="name@example.com" required="" type="email"/></div><div class="field"><label for="phone">טלפון *</label><input autocomplete="tel" dir="ltr" id="phone" name="Phone" placeholder="050-0000000" required="" type="tel"/></div></div><div class="field"><label for="message">במה אוכל לסייע?</label><textarea id="message" name="Message" placeholder="כמה מילים על הארגון ועל הנושא שתרצו לשוחח עליו"></textarea></div><button class="btn submit" type="submit">שלח הודעה</button>
 <div id="formStatus" role="status" aria-live="polite" style="display:none;margin-top:12px;font-weight:700"></div>
 
 </form></div>
@@ -398,7 +398,7 @@ aria-expanded="false" aria-controls="mainNav" aria-label="פתיחת תפריט 
 <h3>התאמות נגישות באתר</h3><ul><li>ניווט והפעלת קישורים, כפתורים וטופס באמצעות מקלדת.</li><li>קישור לדילוג ישיר לתוכן הראשי.</li><li>מבנה סמנטי, כותרות ותוויות לשדות הטופס.</li><li>טקסט חלופי לתמונות משמעותיות וסימון מוקד מקלדת ברור.</li><li>התאמה לתצוגה במחשב ובטלפון נייד.</li><li>תפריט עזר להגדלת טקסט, ניגודיות, גווני אפור והדגשת קישורים.</li></ul>
 <h3>נתקלתם בקושי?</h3><p>אם נתקלתם בבעיית נגישות באתר, נשמח לקבל פרטים כדי שנוכל לבדוק ולטפל: יעקב יאיר, טלפון <a href="tel:+972506899700" dir="ltr">050-6899700</a>, דוא״ל <a href="#contact">yair@yairb.co.il</a>. מומלץ לציין את הדף, הפעולה שניסיתם לבצע, סוג הדפדפן והטכנולוגיה המסייעת, ככל שרלוונטי.</p>
 <p><strong>עדכון אחרון:</strong> 27 בספטמבר 2026.</p></div></dialog>
-<script>document.querySelectorAll('a[href="#home"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();history.replaceState(null,'',location.pathname+location.search+'#home');window.scrollTo(0,0)}));</script><script>document.getElementById('contactForm').addEventListener('submit',function(e){e.preventDefault();if(!this.reportValidity())return;const g=id=>document.getElementById(id).value.trim();const subject='פנייה מאתר יאיר לעסקים – '+g('name');const body=['שם: '+g('name'),'ארגון: '+g('organization'),'דוא״ל: '+g('email'),'טלפון: '+g('phone'),'','הודעה:',''+g('message')].join('\n');window.location.href="#contact"+encodeURIComponent(subject)+'&body='+encodeURIComponent(body);});</script>
+<script>document.querySelectorAll('a[href="#home"]').forEach(a=>a.addEventListener('click',e=>{e.preventDefault();history.replaceState(null,'',location.pathname+location.search+'#home');window.scrollTo(0,0)}));</script>
 <script id="accessibility-script">
 (()=>{
  const root=document.documentElement,toggle=document.getElementById('a11yToggle'),panel=document.getElementById('a11yPanel');
