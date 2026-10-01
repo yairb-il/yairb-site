@@ -359,6 +359,19 @@ html.a11y-gray :where(header,main,footer){filter:grayscale(1)}
 }
 </style>
 
+
+<style id="navigation-panel-fix-v3">
+/* Navigation fix: every main menu destination starts below the sticky header
+   and occupies at least one visible screen, preventing adjacent sections from
+   appearing as part of the selected menu page. */
+@media (min-width:851px){
+  #home, #audiences, #services, #about, #method { min-height:calc(100svh - 83px); }
+  #home .hero-grid { min-height:calc(100svh - 83px); }
+}
+@media (max-width:850px){
+  #home, #audiences, #services, #about, #method { min-height:calc(100svh - 68px); }
+}
+</style>
 </head>
 <body>
 <a class="skip-link" href="#main-content">דלג לתוכן הראשי</a>
@@ -608,4 +621,30 @@ document.addEventListener('submit', async function(e){
 }, true);
 </script>
 
+
+<script id="exact-main-navigation-v3">
+(()=>{
+  const ids=new Set(['home','about','services','method','audiences','contact']);
+  document.addEventListener('click',e=>{
+    const a=e.target.closest('a[href^="#"]');
+    if(!a)return;
+    const id=a.getAttribute('href').slice(1);
+    if(!ids.has(id))return;
+    const target=document.getElementById(id);
+    if(!target)return;
+    e.preventDefault();
+    const mobileButton=document.getElementById('mobileMenuToggle');
+    const nav=document.getElementById('mainNav');
+    if(nav)nav.classList.remove('mobile-open');
+    if(mobileButton){mobileButton.setAttribute('aria-expanded','false');mobileButton.setAttribute('aria-label','פתיחת תפריט ניווט');}
+    requestAnimationFrame(()=>{
+      const header=document.querySelector('header');
+      const offset=header?header.getBoundingClientRect().height:0;
+      const top=id==='home'?0:window.scrollY+target.getBoundingClientRect().top-offset;
+      window.scrollTo({top:Math.max(0,top),behavior:'auto'});
+      history.replaceState(null,'',location.pathname+location.search+'#'+id);
+    });
+  },true);
+})();
+</script>
 </body></html>
